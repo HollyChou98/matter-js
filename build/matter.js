@@ -2552,7 +2552,7 @@ var Contact = _dereq_('./Contact');
             friction: Math.min(parentA.friction, parentB.friction),
             frictionStatic: Math.max(parentA.frictionStatic, parentB.frictionStatic),
             restitution: Math.max(parentA.restitution, parentB.restitution),
-            slop: Math.max(parentA.slop, parentB.slop)
+            slop: Math.min(parentA.slop, parentB.slop)
         };
 
         Pair.update(pair, collision, timestamp);
@@ -2579,7 +2579,7 @@ var Contact = _dereq_('./Contact');
         pair.friction = Math.min(parentA.friction, parentB.friction);
         pair.frictionStatic = Math.max(parentA.frictionStatic, parentB.frictionStatic);
         pair.restitution = Math.max(parentA.restitution, parentB.restitution);
-        pair.slop = Math.max(parentA.slop, parentB.slop);
+        pair.slop = Math.min(parentA.slop, parentB.slop);
         activeContacts.length = 0;
         
         if (collision.collided) {
